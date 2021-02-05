@@ -1,0 +1,44 @@
+{
+  "name": "virtual-store",
+  "version": "1.0.0",
+  "description": "API criada para uma loja virtual",
+  "main": "server.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "babel-node src/server.js",
+    "test:integration": "mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
+    "test:unit": "mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint src --fix --ext .js",
+    "prettier:list": "prettier --check 'src/**/*.js'",
+    "prettier:fix": "prettier --write 'src/**/*.js'",
+    "style:fix": "npm run lint:fix & npm run prettier:fix"
+  },
+  "author": "ivansimplicio",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^6.2.3",
+    "prettier": "^2.2.1",
+    "sinon": "^9.2.4",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "express-acl": "^2.0.8",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.13"
+  }
+}
